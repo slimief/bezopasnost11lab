@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var p = +prompt("число p");
+        var x = +prompt("число x");
+        var m = +prompt("число m");
+        var k = +prompt("число k");
+
+        //первообразный корень числа p
+        function isCoprime (p, b) 
+        {
+                console.log(p + "," + b);
+                while (b){
+                num = p % b;
+                p = b;
+                b = num;
+                }
+                if (Math.abs(p) == 1) {
+                console.log(true);
+                return true;
+                }
+        }
+            var massiv = [];
+        for(var b = 0; b < p; b++)
+        {
+            if(isCoprime(p, b))
+            {
+                massiv.push(b);
+            }
+        }
+        var stepen = massiv.length;
+        alert(stepen);
+        for(var g = 2; g < p; g++)
+        {
+            var result = g ** stepen;
+            if(result > p)
+            {
+                if(result % p == 1)
+                {
+                    
+                    break;
+                }
+            }
+            else
+            {
+                if(result == 1)
+                {
+                    
+                    break;
+                }
+            }
+        }
+
+        //число x
+        if(1 < x < p){
+            var y = (g**x) % p;
+            alert("Число y "+ y);
+            var a = (g**k)%p;
+            alert("число а " + a);
+            var b = ((y**k)*m)%p;
+            alert("число b " + b);
+            var mm = (b * (a**(p-1-x)))%p;
+        }
+        alert("результат:: "+ mm);
+    </script>
+</body>
+</html>
